@@ -22,6 +22,13 @@ app.post('/create', (req, res) => {
     
 })
 
+app.get('/file/:filename', (req, res) => {
+    fs.readFile(`./files/${req.params.filename}`, 'utf-8', (err, fileData) => {
+        if(err) console.log(err);
+        res.render("show", {fileContent: fileData});
+    });        
+});
+
 app.listen(3000, () => {
     console.log("Server is running on port 3000");
 });

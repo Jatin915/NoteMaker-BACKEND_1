@@ -26,17 +26,19 @@
         <div class="text-white w-[100%] flex justify-start flex-wrap pt-8 px-50">
             <% if(fileList.length > 0) { %>
                 <% fileList.forEach(f => { %>
-                    <div class="min-w-50 max-w-72 py-4 px-2 mt-12 m-2 rounded-lg bg-zinc-700">
-                        <h1><%= f %></h1>
-                        <a href="" class="text-blue-500">Read More..</a>
-                    </div>
+                    <% if(f.length > 4) { %>
+                        <div class="min-w-50 max-w-72 py-4 px-2 mt-12 m-2 rounded-lg bg-zinc-700">
+                            <h1><%= f %></h1>
+                            <a href="/file/<%= f %>" class="text-blue-500">open</a>
+                        </div>
+                    <% } %>
                 <% }) %>
             <% } else { %>
                 <h2 class="text-zinc-600">no task yet!</h2>
             <% } %>
         </div>
         <!-- tasks container code ends here -->
-         
+
     </div>
 </body>
 </html>
