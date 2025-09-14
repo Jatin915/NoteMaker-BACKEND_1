@@ -28,8 +28,11 @@
                 <% fileList.forEach(f => { %>
                     <% if(f.length > 4) { %>
                         <div class="min-w-50 max-w-72 py-4 px-2 mt-12 m-2 rounded-lg bg-zinc-700">
-                            <h1><%= f %></h1>
-                            <a href="/file/<%= f %>" class="text-blue-500">open</a>
+                            <h1 class="text-center text-green-600 text-xl"><%= f %></h1>
+                            <div class="flex justify-between mt-3">
+                                <a href="/file/<%= f %>" class="text-blue-500">open</a>
+                                <a href="edit/<%= f %>" class="text-zinc-500 underline">edit filename</a>
+                            </div>
                         </div>
                     <% } %>
                 <% }) %>

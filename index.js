@@ -29,6 +29,19 @@ app.get('/file/:filename', (req, res) => {
     });        
 });
 
+app.get('/edit/:filename', (req, res) => {
+    res.render("edit", {fileName: req.params.filename});
+});
+
+app.post('/edit/:filename', (req, res) => {
+    fs.rename(`./files/${req.params.filename}`, `./files/${req.body.new.split(' ').join('')}.txt`, (err) => {
+        if(err) console.log(err);
+        console.log(req.params.filename);
+        
+        res.redirect('/');
+    });
+});
+
 app.listen(3000, () => {
     console.log("Server is running on port 3000");
 });
